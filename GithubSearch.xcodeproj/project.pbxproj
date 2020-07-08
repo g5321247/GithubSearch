@@ -19,6 +19,7 @@
 		C88B753624B60D2800FCCCD8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88B753524B60D2800FCCCD8 /* Constant.swift */; };
 		C88B753924B6177C00FCCCD8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88B753824B6177C00FCCCD8 /* Request.swift */; };
 		C88B753C24B617AD00FCCCD8 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88B753B24B617AD00FCCCD8 /* NetworkingError.swift */; };
+		C88B753E24B61F7500FCCCD8 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88B753D24B61F7500FCCCD8 /* Client.swift */; };
 		D6BDB3135ABA71C880F1623E /* Pods_GithubSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBBA7C5FE8A2C428CEA7420 /* Pods_GithubSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		C88B753524B60D2800FCCCD8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C88B753824B6177C00FCCCD8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		C88B753B24B617AD00FCCCD8 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		C88B753D24B61F7500FCCCD8 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C88B753824B6177C00FCCCD8 /* Request.swift */,
+				C88B753D24B61F7500FCCCD8 /* Client.swift */,
 				C88B753A24B6179900FCCCD8 /* Error */,
 			);
 			path = Networking;
@@ -305,6 +308,7 @@
 				C88B753924B6177C00FCCCD8 /* Request.swift in Sources */,
 				C88B753124B6018600FCCCD8 /* UserCollectionViewCell.swift in Sources */,
 				C88B753624B60D2800FCCCD8 /* Constant.swift in Sources */,
+				C88B753E24B61F7500FCCCD8 /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
