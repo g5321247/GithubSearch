@@ -50,8 +50,10 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let sideSpacing: CGFloat = 20
         let interitemSpacing: CGFloat = 20
         let numberOfInterCell = 2
-        let width = ((UIApplication.shared.keyWindow?.screen.bounds.width)! - (sideSpacing + interitemSpacing * CGFloat(numberOfInterCell) - 1)) / CGFloat(numberOfInterCell)
-
+        let spacing = (sideSpacing + interitemSpacing * CGFloat(numberOfInterCell - 1))
+        let width =
+            (Constant.screenWidth - spacing) / CGFloat(numberOfInterCell)
+        
         return CGSize(width: width, height: width)
     }
 
