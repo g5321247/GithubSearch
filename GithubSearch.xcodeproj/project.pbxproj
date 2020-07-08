@@ -91,9 +91,7 @@
 				C853E14624B5F53100BA1682 /* Search */,
 				C853E14524B5F4EE00BA1682 /* Extension */,
 				C853E14424B5F4D300BA1682 /* SB */,
-				C853E13924B5F3C600BA1682 /* Assets.xcassets */,
-				C853E13B24B5F3C600BA1682 /* LaunchScreen.storyboard */,
-				C853E13E24B5F3C600BA1682 /* Info.plist */,
+				C88B753324B60A6F00FCCCD8 /* Support File */,
 			);
 			path = GithubSearch;
 			sourceTree = "<group>";
@@ -138,6 +136,16 @@
 				C88B753024B6018600FCCCD8 /* UserCollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C88B753324B60A6F00FCCCD8 /* Support File */ = {
+			isa = PBXGroup;
+			children = (
+				C853E13924B5F3C600BA1682 /* Assets.xcassets */,
+				C853E13B24B5F3C600BA1682 /* LaunchScreen.storyboard */,
+				C853E13E24B5F3C600BA1682 /* Info.plist */,
+			);
+			path = "Support File";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,7 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GithubSearch/Info.plist;
+				INFOPLIST_FILE = "GithubSearch/Support File/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,7 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GithubSearch/Info.plist;
+				INFOPLIST_FILE = "GithubSearch/Support File/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
