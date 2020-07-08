@@ -10,5 +10,9 @@ import Foundation
 import UIKit
 
 struct Constant {
+    static var APIHost: String {
+        return "api.github"
+    }
+
     static let screenWidth: CGFloat  = UIScreen.main.bounds.size.width
 }
