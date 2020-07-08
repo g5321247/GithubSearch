@@ -16,6 +16,7 @@
 		C88B752C24B6011500FCCCD8 /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88B752B24B6011500FCCCD8 /* CollectionViewExtension.swift */; };
 		C88B753124B6018600FCCCD8 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88B752F24B6018600FCCCD8 /* UserCollectionViewCell.swift */; };
 		C88B753224B6018600FCCCD8 /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88B753024B6018600FCCCD8 /* UserCollectionViewCell.xib */; };
+		C88B753624B60D2800FCCCD8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88B753524B60D2800FCCCD8 /* Constant.swift */; };
 		D6BDB3135ABA71C880F1623E /* Pods_GithubSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBBA7C5FE8A2C428CEA7420 /* Pods_GithubSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		C88B752B24B6011500FCCCD8 /* CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
 		C88B752F24B6018600FCCCD8 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		C88B753024B6018600FCCCD8 /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
+		C88B753524B60D2800FCCCD8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				C853E13024B5F3C300BA1682 /* AppDelegate.swift */,
 				C853E13224B5F3C300BA1682 /* SceneDelegate.swift */,
+				C88B753424B60D1900FCCCD8 /* Unit */,
 				C853E14624B5F53100BA1682 /* Search */,
 				C853E14524B5F4EE00BA1682 /* Extension */,
 				C853E14424B5F4D300BA1682 /* SB */,
@@ -146,6 +149,14 @@
 				C853E13E24B5F3C600BA1682 /* Info.plist */,
 			);
 			path = "Support File";
+			sourceTree = "<group>";
+		};
+		C88B753424B60D1900FCCCD8 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				C88B753524B60D2800FCCCD8 /* Constant.swift */,
+			);
+			path = Unit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +280,7 @@
 				C853E13124B5F3C300BA1682 /* AppDelegate.swift in Sources */,
 				C853E13324B5F3C300BA1682 /* SceneDelegate.swift in Sources */,
 				C88B753124B6018600FCCCD8 /* UserCollectionViewCell.swift in Sources */,
+				C88B753624B60D2800FCCCD8 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
