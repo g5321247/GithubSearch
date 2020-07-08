@@ -13,6 +13,7 @@
 		C853E13A24B5F3C600BA1682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C853E13924B5F3C600BA1682 /* Assets.xcassets */; };
 		C853E13D24B5F3C600BA1682 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C853E13B24B5F3C600BA1682 /* LaunchScreen.storyboard */; };
 		C88B752A24B5F6C000FCCCD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C88B752924B5F6BF00FCCCD8 /* Main.storyboard */; };
+		C88B752C24B6011500FCCCD8 /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88B752B24B6011500FCCCD8 /* CollectionViewExtension.swift */; };
 		D6BDB3135ABA71C880F1623E /* Pods_GithubSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CBBA7C5FE8A2C428CEA7420 /* Pods_GithubSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		C853E13C24B5F3C600BA1682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C853E13E24B5F3C600BA1682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C88B752924B5F6BF00FCCCD8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C88B752B24B6011500FCCCD8 /* CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		C853E14524B5F4EE00BA1682 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C88B752B24B6011500FCCCD8 /* CollectionViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C88B752C24B6011500FCCCD8 /* CollectionViewExtension.swift in Sources */,
 				C853E13524B5F3C300BA1682 /* SearchViewController.swift in Sources */,
 				C853E13124B5F3C300BA1682 /* AppDelegate.swift in Sources */,
 				C853E13324B5F3C300BA1682 /* SceneDelegate.swift in Sources */,
