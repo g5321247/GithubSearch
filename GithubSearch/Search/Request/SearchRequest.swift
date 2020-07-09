@@ -26,7 +26,7 @@ struct SearchRequest: Request {
 }
 
 struct SearchResult: Codable {
-    let itmes: [User]
+    let items: [User]
 }
 
 struct User: Codable {
