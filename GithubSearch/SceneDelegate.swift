@@ -13,17 +13,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
-        self.window = UIWindow(windowScene: windowScene)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let rootVC = storyboard.instantiateInitialViewController() as? SearchViewController else {
-            print("ViewController not found")
-            return
-        }
-        rootVC.viewModel = SearchViewModel(networkingService: Client())
+        if let windowScene = scene as? UIWindowScene {
+           let window = UIWindow(windowScene: windowScene)
+            guard let rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? SearchViewController else {
+                print("ViewController not found")
+                return
+            }
+            rootVC.viewModel = SearchViewModel(networkingService: Client())
 
-        self.window?.rootViewController = rootVC
-        self.window?.makeKeyAndVisible()
+           window.rootViewController = rootVC
+           self.window = window
+           window.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
