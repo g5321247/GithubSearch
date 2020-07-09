@@ -22,6 +22,8 @@ class SearchViewController: UIViewController {
         }
     }
 
+    var viewModel: SearchViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
