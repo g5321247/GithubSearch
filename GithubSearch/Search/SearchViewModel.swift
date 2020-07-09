@@ -67,7 +67,8 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
         var dictionary: [String: String] = [:]
         links.forEach({
             let components = $0.components(separatedBy:"; ")
-            let cleanPath = components[0].trimmingCharacters(in: CharacterSet(charactersIn: "<>"))
+            var cleanPath = components[0].replacingOccurrences(of: " ", with: "")
+            cleanPath = cleanPath.trimmingCharacters(in: CharacterSet(charactersIn: "<>"))
             dictionary[components[1]] = cleanPath
         })
         if let nextPagePath = dictionary["rel=\"next\""] {
@@ -89,6 +90,7 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
         networkingService.send(request: request)
             .subscribe(onNext: { (result) in
                 self.items.append(contentsOf: result.0.items)
+                self.handleHeaderLink(with: result.1.allHeaderFields["Link"] as? String)
                 self.reloadDataSubject.onNext(())
             }).disposed(by: bag)
     }
