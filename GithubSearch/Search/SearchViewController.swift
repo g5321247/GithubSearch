@@ -47,6 +47,13 @@ class SearchViewController: UIViewController {
         viewModel.outputs.reloadData.drive(onNext: { [weak self] in
             self?.collectionView.reloadData()
         }).disposed(by: bag)
+
+        viewModel.outputs.showErrorMessage.drive(onNext: { [weak self] message in
+            let alert = UIAlertController(title: "錯誤", message: message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "確定", style: .default, handler: nil)
+            alert.addAction(action)
+            self?.present(alert, animated: true, completion: nil)
+        }).disposed(by: bag)
     }
 }
 

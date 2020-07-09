@@ -18,6 +18,7 @@ protocol SearchViewModelInputs {
 protocol SearchViewModelOutputs {
     var items: [User] { get }
     var shouldLoadMore: Bool { get }
+    var showErrorMessage: Driver<String> { get }
     var reloadData: Driver<Void> { get }
 }
 
@@ -37,8 +38,13 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
         return reloadDataSubject.asDriver(onErrorJustReturn: ())
     }
 
+    var showErrorMessage: Driver<String> {
+        return showErrorMessageSubject.asDriver(onErrorJustReturn: "")
+    }
+
     // MARK: Private
     private let reloadDataSubject: PublishSubject<Void> = PublishSubject()
+    private let showErrorMessageSubject: PublishSubject<String> = PublishSubject()
     private let bag = DisposeBag()
     private var nextPage: String = "0"
     private var queryKey = ""
@@ -58,6 +64,8 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
                 self.items = result.0.items
                 self.handleHeaderLink(with: result.1.allHeaderFields["Link"] as? String)
                 self.reloadDataSubject.onNext(())
+            }, onError: { (_) in
+                self.showErrorMessageSubject.onNext("連線錯誤")
             }).disposed(by: bag)
     }
 
@@ -92,6 +100,8 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
                 self.items.append(contentsOf: result.0.items)
                 self.handleHeaderLink(with: result.1.allHeaderFields["Link"] as? String)
                 self.reloadDataSubject.onNext(())
+            }, onError: { (_) in
+                self.showErrorMessageSubject.onNext("連線錯誤")
             }).disposed(by: bag)
     }
 }
