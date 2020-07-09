@@ -24,7 +24,7 @@ protocol NetworkingService {
         completion: @escaping (Result<(Res.Response, HTTPURLResponse), Error>) -> Void
     )
 
-    func send<Res: PaginatableRequest>(request: Res) -> Observable<(Res.Response, HTTPURLResponse)>
+    func send<Res: Request>(request: Res) -> Observable<(Res.Response, HTTPURLResponse)>
 }
 
 class Client: NetworkingService {
