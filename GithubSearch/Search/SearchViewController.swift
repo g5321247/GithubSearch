@@ -6,9 +6,9 @@
 //  Copyright © 2020 George Liu. All rights reserved.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
+import UIKit
 
 class SearchViewController: UIViewController {
 
@@ -21,6 +21,11 @@ class SearchViewController: UIViewController {
                     String(describing: UserCollectionViewCell.self)
                 ]
             )
+            collectionView.collectionViewLayout = {
+                let flowLayout = UICollectionViewFlowLayout()
+                flowLayout.scrollDirection = .vertical
+                return flowLayout
+            }()
         }
     }
 
@@ -48,11 +53,13 @@ class SearchViewController: UIViewController {
 // MARK: - CollectionView DataSource
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return viewModel.outputs.items.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let user = viewModel.outputs.items[indexPath.row]
         let cell: UserCollectionViewCell = collectionView.makeCell(indexPath: indexPath)
+        cell.configure(name: user.name, picURLStr: user.picURLStr)
         return cell
     }
 }

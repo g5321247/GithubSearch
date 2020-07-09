@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserCollectionViewCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var userPicImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
 
+    func configure(name: String, picURLStr: String) {
+        userNameLabel.text = name
+
+        userPicImageView.kf.setImage(
+            with: URL(string: picURLStr),
+            placeholder: UIImage(named: "default_user")
+        )
+    }
 }
