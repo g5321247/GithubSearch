@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class SearchViewController: UIViewController {
 
@@ -29,11 +31,18 @@ class SearchViewController: UIViewController {
     }
 
     var viewModel: SearchViewModel!
+    private let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
     }
 
+    private func bindViewModel() {
+        viewModel.outputs.reloadData.drive(onNext: { [weak self] in
+            self?.collectionView.reloadData()
+        }).disposed(by: bag)
+    }
 }
 
 // MARK: - CollectionView DataSource

@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol SearchViewModelInputs {
     func searchUsers(queryKey: String)
 }
 
 protocol SearchViewModelOutputs {
-
+    var items: [User] { get }
+    var reloadData: Driver<Void> { get }
 }
 
 protocol SearchViewModelType {
@@ -26,6 +29,15 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
     var inputs: SearchViewModelInputs { return self }
     var outputs: SearchViewModelOutputs { return self }
 
+    private(set)var items: [User] = []
+    var reloadData: Driver<Void> {
+        return reloadDataSubject.asDriver(onErrorJustReturn: ())
+    }
+
+    // MARK: Private
+    private let reloadDataSubject: PublishSubject<Void> = PublishSubject()
+    private let bag = DisposeBag()
+
     private let networkingService: NetworkingService
 
     init(networkingService: NetworkingService) {
@@ -34,9 +46,12 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
 
     func searchUsers(queryKey: String) {
         let request = SearchRequest(parameters: .init(queryKey: queryKey))
-        networkingService.send(request: request).subscribe(onNext: { (model) in
-            print(model.0.itmes[0])
-        })
+        networkingService.send(request: request)
+            .throttle(RxTimeInterval.seconds(3), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { (result) in
+                self.items = result.0.items
+                self.reloadDataSubject.onNext(())
+            }).disposed(by: bag)
     }
 }
 
