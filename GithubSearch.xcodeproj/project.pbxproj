@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4AD807024B70B5C00786B39 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AD806F24B70B5C00786B39 /* URLExtension.swift */; };
 		C853E13124B5F3C300BA1682 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C853E13024B5F3C300BA1682 /* AppDelegate.swift */; };
 		C853E13324B5F3C300BA1682 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C853E13224B5F3C300BA1682 /* SceneDelegate.swift */; };
 		C853E13524B5F3C300BA1682 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C853E13424B5F3C300BA1682 /* SearchViewController.swift */; };
@@ -29,6 +30,7 @@
 		5E89D282849184F8DF59B48A /* Pods-GithubSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubSearch.debug.xcconfig"; path = "Target Support Files/Pods-GithubSearch/Pods-GithubSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		9CBBA7C5FE8A2C428CEA7420 /* Pods_GithubSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC875421813A9BBF8C57ED82 /* Pods-GithubSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubSearch.release.xcconfig"; path = "Target Support Files/Pods-GithubSearch/Pods-GithubSearch.release.xcconfig"; sourceTree = "<group>"; };
+		C4AD806F24B70B5C00786B39 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		C853E12D24B5F3C300BA1682 /* GithubSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C853E13024B5F3C300BA1682 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C853E13224B5F3C300BA1682 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				C88B752B24B6011500FCCCD8 /* CollectionViewExtension.swift */,
+				C4AD806F24B70B5C00786B39 /* URLExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				C853E13524B5F3C300BA1682 /* SearchViewController.swift in Sources */,
 				C88B753C24B617AD00FCCCD8 /* NetworkingError.swift in Sources */,
 				C853E13124B5F3C300BA1682 /* AppDelegate.swift in Sources */,
+				C4AD807024B70B5C00786B39 /* URLExtension.swift in Sources */,
 				C853E13324B5F3C300BA1682 /* SceneDelegate.swift in Sources */,
 				C88B753924B6177C00FCCCD8 /* Request.swift in Sources */,
 				C88B754424B696E300FCCCD8 /* SearchViewModel.swift in Sources */,
