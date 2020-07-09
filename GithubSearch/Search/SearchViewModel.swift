@@ -12,10 +12,12 @@ import RxCocoa
 
 protocol SearchViewModelInputs {
     func searchUsers(queryKey: String)
+    func loadMore()
 }
 
 protocol SearchViewModelOutputs {
     var items: [User] { get }
+    var shouldLoadMore: Bool { get }
     var reloadData: Driver<Void> { get }
 }
 
@@ -30,6 +32,7 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
     var outputs: SearchViewModelOutputs { return self }
 
     private(set)var items: [User] = []
+    private(set)var shouldLoadMore: Bool = true
     var reloadData: Driver<Void> {
         return reloadDataSubject.asDriver(onErrorJustReturn: ())
     }
@@ -37,6 +40,8 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
     // MARK: Private
     private let reloadDataSubject: PublishSubject<Void> = PublishSubject()
     private let bag = DisposeBag()
+    private var nextPage: String = "0"
+    private var queryKey = ""
 
     private let networkingService: NetworkingService
 
@@ -45,13 +50,46 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
     }
 
     func searchUsers(queryKey: String) {
-        let request = SearchRequest(parameters: .init(queryKey: queryKey))
+        self.queryKey = queryKey
+        let request = SearchRequest(parameters: .init(queryKey: self.queryKey, page: nextPage))
         networkingService.send(request: request)
             .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .subscribe(onNext: { (result) in
                 self.items = result.0.items
+                self.handleHeaderLink(with: result.1.allHeaderFields["Link"] as? String)
+                self.reloadDataSubject.onNext(())
+            }).disposed(by: bag)
+    }
+
+    private func handleHeaderLink(with link: String?) {
+        guard let link = link else { return }
+        let links = link.components(separatedBy: ",")
+        var dictionary: [String: String] = [:]
+        links.forEach({
+            let components = $0.components(separatedBy:"; ")
+            let cleanPath = components[0].trimmingCharacters(in: CharacterSet(charactersIn: "<>"))
+            dictionary[components[1]] = cleanPath
+        })
+        if let nextPagePath = dictionary["rel=\"next\""] {
+            guard let url = URL(string: nextPagePath),
+                let page = url.queryParameters?["page"] else {
+                return
+            }
+            self.nextPage = page
+        }
+
+        if dictionary["rel=\"last\""] != nil {
+            shouldLoadMore = true
+        }
+
+    }
+
+    func loadMore() {
+        let request = SearchRequest(parameters: .init(queryKey: self.queryKey, page: nextPage))
+        networkingService.send(request: request)
+            .subscribe(onNext: { (result) in
+                self.items.append(contentsOf: result.0.items)
                 self.reloadDataSubject.onNext(())
             }).disposed(by: bag)
     }
 }
-

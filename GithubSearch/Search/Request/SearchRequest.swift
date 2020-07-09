@@ -13,15 +13,21 @@ struct SearchRequest: Request {
     let method: HTTPMethod = .get
     let path: String = "search/users"
     var parameter: [String : Any] {
-        return [
+        var dict: [String: Any] =  [
             "q": parameters.queryKey
         ]
+        if parameters.page != "0" {
+            dict["page"] = parameters.page
+        }
+
+        return dict
     }
 
     let parameters: Parameters
 
     struct Parameters {
         let queryKey: String
+        let page: String
     }
 }
 
