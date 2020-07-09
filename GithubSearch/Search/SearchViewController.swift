@@ -51,12 +51,12 @@ extension SearchViewController: UICollectionViewDataSource {
 // MARK: - CollectionView Delegate
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let sideSpacing: CGFloat = 20
-        let interitemSpacing: CGFloat = 20
+        let sideSpacing: CGFloat = 40
+        let interitemSpacing: CGFloat = 30
         let numberOfInterCell = 2
         let spacing = (sideSpacing + interitemSpacing * CGFloat(numberOfInterCell - 1))
         let width =
@@ -77,6 +77,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - SearchBar Delegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.inputs.searchUsers(queryKey: searchText)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

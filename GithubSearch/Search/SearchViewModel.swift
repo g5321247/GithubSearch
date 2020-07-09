@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SearchViewModelInputs {
-    
+    func searchUsers(queryKey: String)
 }
 
 protocol SearchViewModelOutputs {
@@ -32,7 +32,11 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
         self.networkingService = networkingService
     }
 
-    
-
+    func searchUsers(queryKey: String) {
+        let request = SearchRequest(parameters: .init(queryKey: queryKey))
+        networkingService.send(request: request).subscribe(onNext: { (model) in
+            print(model.0.itmes[0])
+        })
+    }
 }
 
