@@ -47,7 +47,7 @@ class SearchViewModel: SearchViewModelType, SearchViewModelInputs, SearchViewMod
     func searchUsers(queryKey: String) {
         let request = SearchRequest(parameters: .init(queryKey: queryKey))
         networkingService.send(request: request)
-            .throttle(RxTimeInterval.seconds(3), scheduler: MainScheduler.instance)
+            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .subscribe(onNext: { (result) in
                 self.items = result.0.items
                 self.reloadDataSubject.onNext(())
