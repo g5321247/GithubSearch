@@ -96,7 +96,7 @@ extension SearchViewController: UISearchBarDelegate {
         viewModel.inputs.searchUsers(queryKey: searchText)
     }
 
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        view.endEditing(true)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
     }
 }
