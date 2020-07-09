@@ -21,6 +21,7 @@ class SearchViewController: UIViewController {
                     String(describing: UserCollectionViewCell.self)
                 ]
             )
+            collectionView.keyboardDismissMode = .onDrag
             collectionView.collectionViewLayout = {
                 let flowLayout = UICollectionViewFlowLayout()
                 flowLayout.scrollDirection = .vertical
